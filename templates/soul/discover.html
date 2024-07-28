@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/discover.css' %}">
+    <title>Soundwave-Discover</title>
+</head>
+<body class="full-height-container">
+    <div class="container full-height-container">
+        <header class="main-header">
+            <a href="{% url 'home' %}" class="brand-logo">
+            <img src="{% static 'logo.svg' %}" alt="">
+            <div class="brand-logo-name">Soundwave</div>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                  <li>
+                    <a href="{% url 'playlist' %}"> <i class="fa fa-music"></i> <span class="header-icon-text"> Playlist </span> </a>
+                  </li>
+                  {% if user.is_authenticated %} 
+                    <li>
+                    <a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> <span class="header-icon-text"> Logout </span></a>
+                    </li>  
+                  {%else%}
+                    <li>
+                      <a href="{% url 'register' %}"> <i class="fa fa-user-plus"></i> <span class="header-icon-text"> Join </span></a>
+                    </li>  
+                    <li>
+                      <a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> <span class="header-icon-text"> Login </span></a>
+                    </li>  
+                  {% endif %}                    
+                </ul>
+            </nav>
+        </header>
+        <section class="discover-main-section">
+            <div class="call-to-action">
+              <h1 class="title">Discover new music</h1>
+              <div class="icon-section">
+                <div class="icon">
+                  <img src="{% static 'microphone.svg' %}">
+                  Charts
+                </div>
+                <div class="icon">
+                  <img src="{% static 'albums.svg' %}">
+                  Albums
+                </div>
+                <div class="icon">
+                  <img src="{% static 'more.svg' %}">
+                  More
+                </div>
+              </div>
+              By joining you can benefit by listening to the latest albums released.
+              <div class="input-group">
+                <a href="{% url 'explore' %}" class="btn"><i class="fa fa-globe"></i> Explore</a>
+              </div>
+            </div>
+            <img class="covers-image" src="{% static 'covers.jpg' %}">
+          </section>
+    </div>
+    <footer class="main-footer">
+      <div class="container">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="{% url 'discover' %}"> <i class="fa fa-info-circle"></i><span class="footer-icon-text"> About Us </span> </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/akshay-kumar-40ba9920a/" class="social-link">
+                  <i class="fa fa-linkedin-square"></i> 
+                  <span class="footer-icon-text">Contact</span>
+              </a>
+          </li>
+          
+          </ul>
+        </nav>
+        <nav class="footer-nav">
+          <ul>
+            <li>
+              <a href="https://x.com/AloneRishi2?t=_VGUO6HQ6cbpZPHD_3n3uA&s=09"><i class="fa fa-twitter"></i><span class="footer-icon-text">Twitter</span>  </a>
+            </li>
+            <li>
+              <!-- "https://www.linkedin.com/in/akshay-kumar-40ba9920a/" -->
+              <a href="https://www.instagram.com/mr.akshay.kr/"><i class="fa fa-instagram"></i> <span class="footer-icon-text">Instagram</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  </footer>
+    
+</body>
+</html>
